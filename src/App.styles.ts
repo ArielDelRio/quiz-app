@@ -2,8 +2,8 @@ import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     html {
-        height: 100%;
-    }    
+        height: 100vh;
+    }
 
     body {
         background-color: #ffffff;
@@ -30,12 +30,14 @@ export const Wrapper = styled.div`
 
   > p {
     color: #000;
+    font-size: 1.5rem;
   }
 
   .score {
     color: #000;
     font-size: 2rem;
     margin: 0;
+    margin-bottom: 10px;
   }
 
   h1 {
@@ -71,4 +73,25 @@ export const Wrapper = styled.div`
   }
 
 
+  @media (max-width: 768px) {
+
+    p {
+      font-size: 1.2rem
+    }
+
+    .score {
+      height: 30px;
+      font-size: 1.5rem;
+    }
+
+    h1 {
+      font-size: 50px;
+    }
+
+    .start,
+    .next {
+      height: 40px;
+      max-width: 140px;
+    }
+  }
 `;

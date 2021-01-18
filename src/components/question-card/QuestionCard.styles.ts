@@ -7,13 +7,23 @@ export const Wrapper = styled.div`
     border: 1.4px solid #d38558;
     padding: 20px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
-    text-align: center; 
+    text-align: center;
 
     p {
         font-size: 1.3rem;
         font-family: 'Times New Roman', Times, serif;
     }
-` 
+
+
+    @media (max-width: 768px) {
+        max-width: 70vw;
+
+        p {
+        font-size: 1.1rem;
+
+        }
+    }
+`
 
 type ButtonWrapperProps = {
     correct: boolean;
@@ -34,8 +44,8 @@ export const ButtonWrapper = styled.div<ButtonWrapperProps>`
         font-size: 1rem;
         width: 100%;
         height: 40px;
-        margin: 5px 0; 
-        background: ${({correct, userClicked}) => 
+        margin: 5px 0;
+        background: ${({correct, userClicked}) =>
             correct
                 ? 'linear-gradient(90deg, #56ffa4, #59bc86)'
                 : !correct && userClicked
@@ -47,6 +57,16 @@ export const ButtonWrapper = styled.div<ButtonWrapperProps>`
         color: #fff;
         text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
 
+    }
+
+
+    @media (max-width: 768px) {
+        max-width: 70vw;
+
+        button {
+            font-size: .8rem;
+            height:auto;
+        }
     }
 
 `
