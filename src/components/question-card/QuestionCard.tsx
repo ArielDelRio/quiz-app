@@ -1,8 +1,9 @@
 import React from "react";
+import { Animated } from "react-animated-css";
 //types
 import { AnswerObject } from "../../App";
 //styles
-import { Wrapper, ButtonWrapper } from './QuestionCard.styles';
+import { Wrapper, ButtonWrapper } from "./QuestionCard.styles";
 
 type Props = {
   question: string;
@@ -27,17 +28,32 @@ const QuestionCard: React.FC<Props> = ({
     </p>
     <p dangerouslySetInnerHTML={{ __html: question }}></p>
     <div>
-      {answers.map((answer) => (
-        <ButtonWrapper 
-          key={answer}
-          correct={userAnswer?.correctAnswer === answer}
-          userClicked={userAnswer?.answer === answer}
-        >
-          <button disabled={!!userAnswer} value={answer} onClick={callback}>
-            <span dangerouslySetInnerHTML={{ __html: answer }}></span>
-          </button>
-        </ButtonWrapper>
-      ))}
+      {answers.map((answer) => {
+        const correct = userAnswer?.correctAnswer === answer;
+        const userClicked = userAnswer?.answer === answer;
+        return (
+          <ButtonWrapper
+            key={answer}
+            correct={correct}
+            userClicked={userClicked}
+          >
+            <button
+              className={
+                userClicked
+                  ? correct
+                    ? "animated tada"
+                    : "animated shake"
+                  : ""
+              }
+              disabled={!!userAnswer}
+              value={answer}
+              onClick={callback}
+            >
+              <span dangerouslySetInnerHTML={{ __html: answer }}></span>
+            </button>
+          </ButtonWrapper>
+        );
+      })}
     </div>
   </Wrapper>
 );
