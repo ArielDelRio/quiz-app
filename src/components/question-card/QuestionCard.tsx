@@ -1,5 +1,4 @@
 import React from "react";
-import { Animated } from "react-animated-css";
 //types
 import { AnswerObject } from "../../App";
 //styles
@@ -22,7 +21,7 @@ const QuestionCard: React.FC<Props> = ({
   questionNr,
   totalQuestions,
 }) => (
-  <Wrapper>
+  <Wrapper className="animate__animated animate__fadeInUp">
     <p className="number">
       Question: {questionNr} / {totalQuestions}
     </p>
@@ -41,8 +40,8 @@ const QuestionCard: React.FC<Props> = ({
               className={
                 userClicked
                   ? correct
-                    ? "animated tada"
-                    : "animated shake"
+                    ? "animate__animated animate__tada"
+                    : "animate__animated animate__headShake"
                   : ""
               }
               disabled={!!userAnswer}

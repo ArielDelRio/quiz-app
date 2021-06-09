@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { fetchQuizQuestions } from "./Api";
-import { Animated } from "react-animated-css";
 import ReactLoading from "react-loading";
 // Components
 import QuestionCard from "./components/question-card/QuestionCard";
@@ -77,32 +76,17 @@ const App = () => {
     <>
       <GlobalStyle />
       <Wrapper>
-        <Animated
-          animationIn="zoomIn"
-          animationOut="zoomOutDown"
-          animationInDuration={1000}
-          animationOutDuration={1000}
-          isVisible={true}
-        >
-          <div className="title">
-            <h1>React Quiz</h1>
-            <img className="img_title" src={img_title} alt="img title" />
-          </div>
-        </Animated>
+        <div className="title animate__animated animate__zoomIn">
+          <h1>React Quiz</h1>
+          <img className="img_title" src={img_title} alt="img title" />
+        </div>
 
         {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
-          <Animated
-            animationIn="bounceIn"
-            animationOut="zoomOutDown"
-            animationInDuration={600}
-            animationOutDuration={1000}
-            isVisible={true}
-            animationInDelay={1000}
-          >
+          <div className="animate__animated animate__bounceIn animate__delay-1s">
             <button className="start" onClick={startTrivia}>
               Start
             </button>
-          </Animated>
+          </div>
         ) : null}
 
         {loading && <ReactLoading type="balls" color="#F2F3D9" width="6em" />}

@@ -129,7 +129,7 @@ export const Wrapper = styled.div`
   @media (max-width: 480px) {
     .title {
       padding-top: 5em;
-      margin: auto;
+      margin: 0 auto;
     }
   }
 `;
