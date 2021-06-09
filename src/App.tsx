@@ -77,7 +77,7 @@ const App = () => {
       <GlobalStyle />
       <Wrapper>
         <div className="title animate__animated animate__zoomIn">
-          <h1>React Quiz</h1>
+          <h1>Quiz App</h1>
           <img className="img_title" src={img_title} alt="img title" />
         </div>
 
